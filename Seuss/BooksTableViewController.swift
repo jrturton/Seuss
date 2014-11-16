@@ -45,5 +45,12 @@ class BooksTableViewController: UITableViewController {
     displayActivity(2)
   }
   
-  
+}
+
+class SeussTableView : UITableView {
+  override func layoutSublayersOfLayer(layer: CALayer) {
+    println(valueForKey("_autolayoutTrace"))
+    super.layoutSublayersOfLayer(layer)
+    
+  }
 }
