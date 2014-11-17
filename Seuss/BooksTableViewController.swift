@@ -7,37 +7,43 @@
 //
 
 import UIKit
+import CoreData
 
 class BooksTableViewController: UITableViewController {
   
-  var books : [Book]!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    var coreDataStack : CoreDataStack! {
+        didSet {
+            resultsController = coreDataStack?.booksResultController()
+        }
+    }
     
-    books = createBooks()
-    
-  }
+    var resultsController : NSFetchedResultsController? {
+        didSet {
+            resultsController?.performFetch(nil)
+            tableView.reloadData()
+        }
+    }
   
+    
   // MARK: - Table view data source
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
+    return resultsController?.sections?.count ?? 0
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return books.count
+    return (resultsController?.sections?[section] as? NSFetchedResultsSectionInfo)?.numberOfObjects ?? 0
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
     
-    let book = books[indexPath.row]
+    if let book = resultsController?.objectAtIndexPath(indexPath) as? Book {
+        cell.textLabel.text = book.title
+        cell.detailTextLabel?.text = "\(book.year)"
+        cell.imageView.image = book.image
+    }
     
-    cell.textLabel.text = book.title
-    cell.detailTextLabel?.text = "\(book.year)"
-    cell.imageView.image = book.image
-  
     return cell
   }
   
@@ -45,12 +51,4 @@ class BooksTableViewController: UITableViewController {
     displayActivity(2)
   }
   
-}
-
-class SeussTableView : UITableView {
-  override func layoutSublayersOfLayer(layer: CALayer) {
-    println(valueForKey("_autolayoutTrace"))
-    super.layoutSublayersOfLayer(layer)
-    
-  }
 }

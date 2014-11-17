@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27DE877F1A1A2A3900658B97 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */; };
+		27DE87821A1A2A4F00658B97 /* Seuss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27DE87801A1A2A4F00658B97 /* Seuss.xcdatamodeld */; };
+		27DE87841A1A2AD000658B97 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE87831A1A2AD000658B97 /* Book.swift */; };
 		79EBFAB01A154E4C0098D3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBFAAF1A154E4C0098D3D6 /* AppDelegate.swift */; };
 		79EBFAB51A154E4C0098D3D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EBFAB31A154E4C0098D3D6 /* Main.storyboard */; };
 		79EBFAB71A154E4C0098D3D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EBFAB61A154E4C0098D3D6 /* Images.xcassets */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		27DE87811A1A2A4F00658B97 /* Seuss.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seuss.xcdatamodel; sourceTree = "<group>"; };
+		27DE87831A1A2AD000658B97 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		79EBFAAA1A154E4C0098D3D6 /* Seuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EBFAAE1A154E4C0098D3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79EBFAAF1A154E4C0098D3D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,8 +129,11 @@
 		79EBFACF1A154F9A0098D3D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27DE87831A1A2AD000658B97 /* Book.swift */,
 				79EBFAD01A1550360098D3D6 /* Model.swift */,
 				79EBFAD21A1550A10098D3D6 /* books.json */,
+				27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */,
+				27DE87801A1A2A4F00658B97 /* Seuss.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,8 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27DE877F1A1A2A3900658B97 /* CoreDataStack.swift in Sources */,
 				79EBFAD91A1558CA0098D3D6 /* ActivityIndicator.swift in Sources */,
+				27DE87841A1A2AD000658B97 /* Book.swift in Sources */,
 				79EBFAB01A154E4C0098D3D6 /* AppDelegate.swift in Sources */,
+				27DE87821A1A2A4F00658B97 /* Seuss.xcdatamodeld in Sources */,
 				79EBFAD11A1550360098D3D6 /* Model.swift in Sources */,
 				79EBFAD61A1555C50098D3D6 /* BooksTableViewController.swift in Sources */,
 			);
@@ -459,6 +471,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27DE87801A1A2A4F00658B97 /* Seuss.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27DE87811A1A2A4F00658B97 /* Seuss.xcdatamodel */,
+			);
+			currentVersion = 27DE87811A1A2A4F00658B97 /* Seuss.xcdatamodel */;
+			path = Seuss.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 79EBFAA21A154E4B0098D3D6 /* Project object */;
 }
