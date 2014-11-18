@@ -13,39 +13,34 @@ class BooksTableViewController: UITableViewController {
   
     var coreDataStack : CoreDataStack! {
         didSet {
-            resultsController = coreDataStack?.booksResultController()
-        }
-    }
-    
-    var resultsController : NSFetchedResultsController? {
-        didSet {
-            resultsController?.performFetch(nil)
+            let resultsController = coreDataStack?.booksResultController()
+            fetchedResultsDataSource = FetchedResultsDataSource()
+            fetchedResultsDataSource.resultsController = resultsController
+            fetchedResultsDataSource.dequeueCell = dequeueCell
+            fetchedResultsDataSource.configureCell = configureCell
+            tableView.dataSource = fetchedResultsDataSource
             tableView.reloadData()
+            }
+    }
+    
+    var fetchedResultsDataSource : FetchedResultsDataSource! = nil
+    
+    let dequeueCell : DequeueCell = {
+        (tableView: UITableView, indexPath:NSIndexPath) in
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        return cell
+    }
+
+    let configureCell : ConfigureCell = {
+        (cell: UITableViewCell, indexPath:NSIndexPath, object:AnyObject!) in
+        if let book = object as? Book {
+            cell.textLabel.text = book.title
+            cell.detailTextLabel?.text = "\(book.year)"
+            cell.imageView.image = book.image
         }
     }
-  
-    
-  // MARK: - Table view data source
-  
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return resultsController?.sections?.count ?? 0
-  }
-  
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return (resultsController?.sections?[section] as? NSFetchedResultsSectionInfo)?.numberOfObjects ?? 0
-  }
-  
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-    
-    if let book = resultsController?.objectAtIndexPath(indexPath) as? Book {
-        cell.textLabel.text = book.title
-        cell.detailTextLabel?.text = "\(book.year)"
-        cell.imageView.image = book.image
-    }
-    
-    return cell
-  }
+
+ 
   
   @IBAction func refresh(sender: AnyObject) {
     displayActivity(2)
