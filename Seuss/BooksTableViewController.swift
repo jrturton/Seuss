@@ -15,12 +15,13 @@ class BooksTableViewController: UITableViewController {
         didSet {
             let resultsController = coreDataStack?.booksResultController()
             fetchedResultsDataSource = FetchedResultsDataSource()
+            fetchedResultsDataSource.tableView = tableView
             fetchedResultsDataSource.resultsController = resultsController
             fetchedResultsDataSource.dequeueCell = dequeueCell
             fetchedResultsDataSource.configureCell = configureCell
             tableView.dataSource = fetchedResultsDataSource
             tableView.reloadData()
-            }
+        }
     }
     
     var fetchedResultsDataSource : FetchedResultsDataSource! = nil
