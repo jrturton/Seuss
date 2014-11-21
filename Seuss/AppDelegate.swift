@@ -12,8 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+    
+    var keyboardAppearObserver : AnyObject?
+    var keyboardDisappearObserver : AnyObject?
 
     let coreDataStack = CoreDataStack()
+    
+    lazy var keyboardDismissingOverlay : KeyboardDismissingOverlay = {
+        let overlay = KeyboardDismissingOverlay(frame:CGRectZero)
+        overlay.backgroundColor = UIColor.clearColor()
+        return overlay
+    }()
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
@@ -21,6 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if let booksVC = (window?.rootViewController as? UINavigationController)?.topViewController as? BooksTableViewController {
         booksVC.coreDataStack = coreDataStack
     }
+    
+    keyboardAppearObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidShowNotification, object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{
+        notification in
+        
+        let overlay = self.keyboardDismissingOverlay
+        self.window?.rootViewController?.view.addSubview(overlay)
+        overlay.frame = overlay.superview!.bounds
+        if let userInfo = notification.userInfo {
+            overlay.keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        }
+    })
+    
+    keyboardDisappearObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidHideNotification, object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{
+        notification in
+        self.keyboardDismissingOverlay.removeFromSuperview()
+    })
+    
     return true
   }
 

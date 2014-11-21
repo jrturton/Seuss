@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		27527A9B1A1D54F000111D3D /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27527A9A1A1D54F000111D3D /* BookCell.swift */; };
+		27527AAC1A1EA96D00111D3D /* UIResponder+CurrentResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27527AAB1A1EA96D00111D3D /* UIResponder+CurrentResponder.swift */; };
+		27527AAE1A1EAB5B00111D3D /* KeyboardDismissingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27527AAD1A1EAB5B00111D3D /* KeyboardDismissingOverlay.swift */; };
+		27527AB01A1EB71900111D3D /* UITableView+PathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27527AAF1A1EB71900111D3D /* UITableView+PathFinder.swift */; };
 		277740711A1B7CB00062BE88 /* FetchedResultsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277740701A1B7CB00062BE88 /* FetchedResultsDatasource.swift */; };
 		27DE877F1A1A2A3900658B97 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */; };
 		27DE87821A1A2A4F00658B97 /* Seuss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27DE87801A1A2A4F00658B97 /* Seuss.xcdatamodeld */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		27527A9A1A1D54F000111D3D /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		27527AAB1A1EA96D00111D3D /* UIResponder+CurrentResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+CurrentResponder.swift"; sourceTree = "<group>"; };
+		27527AAD1A1EAB5B00111D3D /* KeyboardDismissingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingOverlay.swift; sourceTree = "<group>"; };
+		27527AAF1A1EB71900111D3D /* UITableView+PathFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+PathFinder.swift"; sourceTree = "<group>"; };
 		277740701A1B7CB00062BE88 /* FetchedResultsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsDatasource.swift; sourceTree = "<group>"; };
 		27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		27DE87811A1A2A4F00658B97 /* Seuss.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seuss.xcdatamodel; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				27527A9A1A1D54F000111D3D /* BookCell.swift */,
+				27527AAD1A1EAB5B00111D3D /* KeyboardDismissingOverlay.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -164,6 +171,8 @@
 			children = (
 				79EBFAD81A1558CA0098D3D6 /* ActivityIndicator.swift */,
 				277740701A1B7CB00062BE88 /* FetchedResultsDatasource.swift */,
+				27527AAB1A1EA96D00111D3D /* UIResponder+CurrentResponder.swift */,
+				27527AAF1A1EB71900111D3D /* UITableView+PathFinder.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -273,10 +282,13 @@
 				27DE877F1A1A2A3900658B97 /* CoreDataStack.swift in Sources */,
 				79EBFAD91A1558CA0098D3D6 /* ActivityIndicator.swift in Sources */,
 				27DE87841A1A2AD000658B97 /* Book.swift in Sources */,
+				27527AB01A1EB71900111D3D /* UITableView+PathFinder.swift in Sources */,
 				79EBFAB01A154E4C0098D3D6 /* AppDelegate.swift in Sources */,
 				277740711A1B7CB00062BE88 /* FetchedResultsDatasource.swift in Sources */,
 				27DE87821A1A2A4F00658B97 /* Seuss.xcdatamodeld in Sources */,
+				27527AAC1A1EA96D00111D3D /* UIResponder+CurrentResponder.swift in Sources */,
 				79EBFAD11A1550360098D3D6 /* Model.swift in Sources */,
+				27527AAE1A1EAB5B00111D3D /* KeyboardDismissingOverlay.swift in Sources */,
 				79EBFAD61A1555C50098D3D6 /* BooksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

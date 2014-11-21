@@ -40,6 +40,7 @@ class BooksTableViewController: UITableViewController {
             bookCell?.yearLabel.text = "\(book.year)"
             bookCell?.coverImage.image = book.image
             bookCell?.ratingLabel.text = book.ratingString
+            bookCell?.reviewField.text = book.review
         }
     }
     
@@ -74,4 +75,29 @@ class BooksTableViewController: UITableViewController {
     displayActivity(2)
   }
   
+    @IBAction func adjustRating(sender: UISegmentedControl) {
+        if let indexPath = tableView.indexPathForView(sender) {
+            let book = fetchedResultsDataSource.resultsController!.objectAtIndexPath(indexPath) as Book
+            let increment = sender.selectedSegmentIndex == 0 ? -1 : 1
+            var newRating = book.rating.integerValue + increment
+            newRating = max(0, newRating)
+            newRating = min(5, newRating)
+            book.rating = newRating
+        }
+    }
+}
+
+extension BooksTableViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if let indexPath = tableView.indexPathForView(textField) {
+            let book = fetchedResultsDataSource.resultsController!.objectAtIndexPath(indexPath) as Book
+            book.review = textField.text
+        }
+    }
 }
