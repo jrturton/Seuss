@@ -24,6 +24,8 @@ class KeyboardDismissingOverlay : UIView {
     
     private func observeKeyboard() -> AnyObject {
         return NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidChangeFrameNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
+            // BUG FIX: retain cycle here
+//            [unowned self]
             notification in
             if let userInfo = notification.userInfo {
                 self.keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
@@ -32,6 +34,7 @@ class KeyboardDismissingOverlay : UIView {
     }
     
     deinit {
+        println("deinit")
         NSNotificationCenter.defaultCenter().removeObserver(keyboardFrameObserver)
     }
     

@@ -18,11 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let coreDataStack = CoreDataStack()
     
-    lazy var keyboardDismissingOverlay : KeyboardDismissingOverlay = {
-        let overlay = KeyboardDismissingOverlay(frame:CGRectZero)
-        overlay.backgroundColor = UIColor.clearColor()
-        return overlay
-    }()
+    weak var keyboardDismissingOverlay : KeyboardDismissingOverlay?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
@@ -34,17 +30,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     keyboardAppearObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidShowNotification, object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{
         notification in
         
-        let overlay = self.keyboardDismissingOverlay
+        let overlay = KeyboardDismissingOverlay(frame:CGRectZero)
+        overlay.backgroundColor = UIColor.clearColor()
         self.window?.rootViewController?.view.addSubview(overlay)
         overlay.frame = overlay.superview!.bounds
         if let userInfo = notification.userInfo {
             overlay.keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
         }
+        self.keyboardDismissingOverlay = overlay
     })
     
     keyboardDisappearObserver = NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidHideNotification, object:nil, queue:NSOperationQueue.mainQueue(), usingBlock:{
         notification in
-        self.keyboardDismissingOverlay.removeFromSuperview()
+        self.keyboardDismissingOverlay?.removeFromSuperview()
+        self.keyboardDismissingOverlay = nil
     })
     
     return true
