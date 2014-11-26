@@ -41,7 +41,6 @@
 		27527AAB1A1EA96D00111D3D /* UIResponder+CurrentResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+CurrentResponder.swift"; sourceTree = "<group>"; };
 		27527AAD1A1EAB5B00111D3D /* KeyboardDismissingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDismissingOverlay.swift; sourceTree = "<group>"; };
 		27527AAF1A1EB71900111D3D /* UITableView+PathFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+PathFinder.swift"; sourceTree = "<group>"; };
-		27527AB11A1F245100111D3D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		277740701A1B7CB00062BE88 /* FetchedResultsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsDatasource.swift; sourceTree = "<group>"; };
 		27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		27DE87811A1A2A4F00658B97 /* Seuss.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seuss.xcdatamodel; sourceTree = "<group>"; };
@@ -91,7 +90,6 @@
 		79EBFAA11A154E4B0098D3D6 = {
 			isa = PBXGroup;
 			children = (
-				27527AB11A1F245100111D3D /* README.md */,
 				79EBFAAC1A154E4C0098D3D6 /* Seuss */,
 				79EBFAC21A154E4C0098D3D6 /* SeussTests */,
 				79EBFAAB1A154E4C0098D3D6 /* Products */,
