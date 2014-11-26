@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     weak var keyboardDismissingOverlay : KeyboardDismissingOverlay?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
-    createBooks(coreDataStack.context)
+    
     if let booksVC = (window?.rootViewController as? UINavigationController)?.topViewController as? BooksTableViewController {
         booksVC.coreDataStack = coreDataStack
     }

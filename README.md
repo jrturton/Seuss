@@ -31,7 +31,7 @@ When entering a review, if you then tap the rate buttons the text in the review 
 
 If the keyboard is present, when you background the app and come back in, any attempt to type dismisses the keyboard. Steps to diagnose:
 
-- This one is actually best diagnosed with Reveal, but its unlikely that people will have it. The view debugger in Xcode doesn't include the keyboard, but what's happening is that the resigner view is being moved infront of the keyboard when the app is brought back to the foreground
+- Breakpoint on resign first responder
 
 ## Bonus level: Retain cycle
 

@@ -11,7 +11,17 @@ import CoreData
 
 class BooksTableViewController: UITableViewController {
   
-    var coreDataStack : CoreDataStack! {
+  //MARK: Lifecycle
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    displayActivity(1){
+      // Override point for customization after application launch.
+      createBooks(self.coreDataStack.context)
+    }
+  }
+  
+  //MARK: Fetched results
+  var coreDataStack : CoreDataStack! {
         didSet {
             let resultsController = coreDataStack?.booksResultController()
             fetchedResultsDataSource = FetchedResultsDataSource()
@@ -72,7 +82,7 @@ class BooksTableViewController: UITableViewController {
  // MARK: Actions
   
   @IBAction func refresh(sender: AnyObject) {
-    displayActivity(2)
+    displayActivity(2){}
   }
   
     @IBAction func adjustRating(sender: UISegmentedControl) {

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
   
-  func displayActivity(seconds: Int) {
+  func displayActivity(seconds: Int, completion:(()->Void)?) {
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.setTranslatesAutoresizingMaskIntoConstraints(false)
     indicator.layer.cornerRadius = 10.0
@@ -32,6 +32,9 @@ extension UIViewController {
       indicator.removeFromSuperview()
       UIApplication.sharedApplication().endIgnoringInteractionEvents()
       self.view.tintAdjustmentMode = .Normal
+      if let completion = completion {
+        completion()
+      }
     }
   }
 }
