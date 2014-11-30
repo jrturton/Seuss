@@ -24,6 +24,7 @@ class KeyboardDismissingOverlay : UIView {
   
   private func observeKeyboard() -> AnyObject {
     return NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidChangeFrameNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
+      [unowned self]
       notification in
       if let userInfo = notification.userInfo {
         self.keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
@@ -38,6 +39,12 @@ class KeyboardDismissingOverlay : UIView {
   var keyboardFrame: CGRect!
   
   override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    
+    // Should this touch go to the keyboard?
+    let keyboardRect = convertRect(keyboardFrame, fromView:nil)
+    if CGRectContainsPoint(keyboardRect, point) {
+      return false
+    }
     
     // Is this touch on the current first responder?
     
