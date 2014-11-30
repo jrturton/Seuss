@@ -15,10 +15,10 @@
 		27DE877F1A1A2A3900658B97 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */; };
 		27DE87821A1A2A4F00658B97 /* Seuss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27DE87801A1A2A4F00658B97 /* Seuss.xcdatamodeld */; };
 		27DE87841A1A2AD000658B97 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE87831A1A2AD000658B97 /* Book.swift */; };
+		7940E4DB1A2715FF0075C492 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7940E4DA1A2715FF0075C492 /* LaunchScreen.xib */; };
 		79EBFAB01A154E4C0098D3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBFAAF1A154E4C0098D3D6 /* AppDelegate.swift */; };
 		79EBFAB51A154E4C0098D3D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EBFAB31A154E4C0098D3D6 /* Main.storyboard */; };
 		79EBFAB71A154E4C0098D3D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EBFAB61A154E4C0098D3D6 /* Images.xcassets */; };
-		79EBFABA1A154E4C0098D3D6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79EBFAB81A154E4C0098D3D6 /* LaunchScreen.xib */; };
 		79EBFAC61A154E4C0098D3D6 /* SeussTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBFAC51A154E4C0098D3D6 /* SeussTests.swift */; };
 		79EBFAD11A1550360098D3D6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBFAD01A1550360098D3D6 /* Model.swift */; };
 		79EBFAD31A1550A10098D3D6 /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = 79EBFAD21A1550A10098D3D6 /* books.json */; };
@@ -45,12 +45,12 @@
 		27DE877E1A1A2A3900658B97 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		27DE87811A1A2A4F00658B97 /* Seuss.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seuss.xcdatamodel; sourceTree = "<group>"; };
 		27DE87831A1A2AD000658B97 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		7940E4DA1A2715FF0075C492 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		79EBFAAA1A154E4C0098D3D6 /* Seuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EBFAAE1A154E4C0098D3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79EBFAAF1A154E4C0098D3D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79EBFAB41A154E4C0098D3D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79EBFAB61A154E4C0098D3D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		79EBFAB91A154E4C0098D3D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		79EBFABF1A154E4C0098D3D6 /* SeussTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeussTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EBFAC41A154E4C0098D3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79EBFAC51A154E4C0098D3D6 /* SeussTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeussTests.swift; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 				79EBFACF1A154F9A0098D3D6 /* Model */,
 				79EBFAAF1A154E4C0098D3D6 /* AppDelegate.swift */,
 				79EBFAB31A154E4C0098D3D6 /* Main.storyboard */,
+				7940E4DA1A2715FF0075C492 /* LaunchScreen.xib */,
 				79EBFAB61A154E4C0098D3D6 /* Images.xcassets */,
-				79EBFAB81A154E4C0098D3D6 /* LaunchScreen.xib */,
 				79EBFAAD1A154E4C0098D3D6 /* Supporting Files */,
 			);
 			path = Seuss;
@@ -257,9 +257,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7940E4DB1A2715FF0075C492 /* LaunchScreen.xib in Resources */,
 				79EBFAD31A1550A10098D3D6 /* books.json in Resources */,
 				79EBFAB51A154E4C0098D3D6 /* Main.storyboard in Resources */,
-				79EBFABA1A154E4C0098D3D6 /* LaunchScreen.xib in Resources */,
 				79EBFAB71A154E4C0098D3D6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,14 +318,6 @@
 				79EBFAB41A154E4C0098D3D6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		79EBFAB81A154E4C0098D3D6 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79EBFAB91A154E4C0098D3D6 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

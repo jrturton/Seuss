@@ -9,8 +9,8 @@
 import UIKit
 
 extension UITableView {
-    func indexPathForView (view : UIView) -> NSIndexPath? {
-        let location = view.convertPoint(CGPointZero, toView:self)
-        return indexPathForRowAtPoint(location)
-    }
+  func indexPathForView (view : UIView) -> NSIndexPath? {
+    let location = view.convertPoint(CGPointZero, toView:self)
+    return indexPathForRowAtPoint(location)
+  }
 }
