@@ -12,15 +12,18 @@ extension UIViewController {
   
   func displayActivity(seconds: Int, completion:(()->Void)?) {
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-    indicator.setTranslatesAutoresizingMaskIntoConstraints(false)
     indicator.layer.cornerRadius = 10.0
     indicator.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
     view.addSubview(indicator)
+    
+    // Size and position using autolayout
+    indicator.setTranslatesAutoresizingMaskIntoConstraints(false)
     let views = ["indicator":indicator]
     view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[indicator(150)]", options: nil, metrics: nil, views: views))
     view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[indicator(150)]", options: nil, metrics: nil, views: views))
     view.addConstraint(NSLayoutConstraint(item: indicator, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
     view.addConstraint(NSLayoutConstraint(item: indicator, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0))
+    
     
     view.tintAdjustmentMode = .Dimmed
     
