@@ -14,11 +14,13 @@ If the rating is tapped after the keyboard has been removed, the information is 
 Try to find the problem without changing any of the code!
 
 Add a symbolic breakpoint on `-[UITextField setText:]` and look at the backtrace
-Add a logging breakpoint to the `configureCell` closure to see what value is being set: 
+Add a breakpoint to the `configureCell` closure to see what value is being set. Make the breakpoint continue after execution and add the following debugger action:
 
 ```
 po "\(book.title) : \(book.review)"
 ```
+
+You may want to disable the `setText` breakpoint after this point!
 
 Add a breakpoint on `textFieldDidEndEditing` in **BooksTableViewController.swift** - this is where the review data is added to the model
 
