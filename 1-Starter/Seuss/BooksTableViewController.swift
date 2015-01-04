@@ -83,6 +83,18 @@ class BooksTableViewController: UITableViewController {
         }
     }
     
+    // MARK: Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForCell(sender as UITableViewCell) {
+                let book = fetchedResultsDataSource.resultsController!.objectAtIndexPath(indexPath) as Book
+                let detailVC = segue.destinationViewController as BookDetailViewController
+                detailVC.book = book
+            }
+        }
+    }
+    
     // MARK: Actions
     
     @IBAction func refresh(sender: AnyObject) {

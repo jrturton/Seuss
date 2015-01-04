@@ -117,7 +117,7 @@
                                     <outlet property="reviewField" destination="8Ph-cg-HJo" id="HPE-OZ-PWX"/>
                                     <outlet property="titleLabel" destination="6UZ-EY-OFg" id="Lie-jt-y9e"/>
                                     <outlet property="yearLabel" destination="SQR-ke-0RO" id="NBI-SX-8jL"/>
-                                    <segue destination="Jul-H1-NPj" kind="show" trigger="accessoryAction" id="hbG-aw-Chj"/>
+                                    <segue destination="Jul-H1-NPj" kind="show" identifier="showDetail" trigger="accessoryAction" id="hbG-aw-Chj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1178" y="356"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="BfB-QG-DS4">
             <objects>
-                <viewController id="Jul-H1-NPj" sceneMemberID="viewController">
+                <viewController id="Jul-H1-NPj" customClass="BookDetailViewController" customModule="Seuss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Yv-yX-HsR"/>
                         <viewControllerLayoutGuide type="bottom" id="5Wo-ug-v9P"/>
@@ -150,33 +150,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8g-S2-7qD">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8g-S2-7qD" userLabel="Outer">
                                 <rect key="frame" x="16" y="84" width="568" height="496"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-hM-rZ4">
-                                        <rect key="frame" x="8" y="58" width="552" height="430"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="topBorder">
-                                                <color key="value" red="0.21168663090000001" green="0.44045223820000001" blue="0.77040816329999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-3X-tF0">
-                                        <rect key="frame" x="263" y="29" width="42" height="21"/>
+                                        <rect key="frame" x="263" y="20" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGP-IL-5Qr" userLabel="Inner1">
+                                        <rect key="frame" x="10" y="50" width="548" height="436"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-hM-rZ4" userLabel="Inner2">
+                                                <rect key="frame" x="8" y="48" width="532" height="380"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-18-OPN">
+                                                        <rect key="frame" x="20" y="20" width="492" height="340"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="HuR-18-OPN" firstAttribute="leading" secondItem="gC3-hM-rZ4" secondAttribute="leading" constant="20" id="IEn-Wt-PyQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HuR-18-OPN" secondAttribute="trailing" constant="20" id="od4-ig-9Zs"/>
+                                                    <constraint firstItem="HuR-18-OPN" firstAttribute="top" secondItem="gC3-hM-rZ4" secondAttribute="top" constant="20" id="xIY-iq-yT2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HuR-18-OPN" secondAttribute="bottom" constant="20" id="y0u-bP-ebF"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="topBorder">
+                                                        <color key="value" red="0.21168663090000001" green="0.44045223820000001" blue="0.77040816329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACu-HJ-TGR">
+                                                <rect key="frame" x="253" y="20" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ACu-HJ-TGR" firstAttribute="top" secondItem="PGP-IL-5Qr" secondAttribute="top" constant="20" id="7Lo-hA-NL5"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="gC3-hM-rZ4" secondAttribute="trailing" id="CUB-Kk-QJN"/>
+                                            <constraint firstAttribute="centerX" secondItem="ACu-HJ-TGR" secondAttribute="centerX" id="TBL-cj-4lx"/>
+                                            <constraint firstItem="gC3-hM-rZ4" firstAttribute="leading" secondItem="PGP-IL-5Qr" secondAttribute="leadingMargin" id="WWN-Tm-EG7"/>
+                                            <constraint firstItem="gC3-hM-rZ4" firstAttribute="top" secondItem="PGP-IL-5Qr" secondAttribute="topMargin" constant="40" id="aI2-QR-pwl"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="gC3-hM-rZ4" secondAttribute="bottom" id="ycW-iq-SQi"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topBorder">
+                                                <color key="value" red="0.94509803920000002" green="0.54117647059999996" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="gC3-hM-rZ4" secondAttribute="bottom" id="BSG-x2-aSg"/>
-                                    <constraint firstItem="gC3-hM-rZ4" firstAttribute="top" secondItem="u8g-S2-7qD" secondAttribute="topMargin" constant="50" id="FWS-Q1-IoT"/>
-                                    <constraint firstItem="gC3-hM-rZ4" firstAttribute="top" secondItem="Mjh-3X-tF0" secondAttribute="bottom" constant="8" id="Hx9-DE-BmG"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="gC3-hM-rZ4" secondAttribute="trailing" id="XI2-Wa-e1O"/>
+                                    <constraint firstItem="PGP-IL-5Qr" firstAttribute="leading" secondItem="u8g-S2-7qD" secondAttribute="leading" constant="10" id="4If-p9-KW4"/>
+                                    <constraint firstItem="PGP-IL-5Qr" firstAttribute="top" secondItem="u8g-S2-7qD" secondAttribute="top" constant="50" id="Aqd-NI-TS7"/>
+                                    <constraint firstItem="Mjh-3X-tF0" firstAttribute="top" secondItem="u8g-S2-7qD" secondAttribute="top" constant="20" id="JoI-wG-XX6"/>
+                                    <constraint firstAttribute="trailing" secondItem="PGP-IL-5Qr" secondAttribute="trailing" constant="10" id="ThU-Ep-YDI"/>
+                                    <constraint firstAttribute="bottom" secondItem="PGP-IL-5Qr" secondAttribute="bottom" constant="10" id="VJg-Op-FNt"/>
                                     <constraint firstAttribute="centerX" secondItem="Mjh-3X-tF0" secondAttribute="centerX" id="Yi6-cq-9Bd"/>
-                                    <constraint firstItem="gC3-hM-rZ4" firstAttribute="leading" secondItem="u8g-S2-7qD" secondAttribute="leadingMargin" id="q7P-ta-Rse"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="topBorder">
@@ -193,6 +229,11 @@
                             <constraint firstItem="u8g-S2-7qD" firstAttribute="leading" secondItem="osy-Io-s81" secondAttribute="leadingMargin" id="yTE-0j-4he"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="HuR-18-OPN" id="4xf-bh-epe"/>
+                        <outlet property="ratingLabel" destination="ACu-HJ-TGR" id="Thw-SH-ddw"/>
+                        <outlet property="titleLabel" destination="Mjh-3X-tF0" id="5ac-r9-7AO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTd-WJ-fXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

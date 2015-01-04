@@ -22,7 +22,7 @@ extension UIView {
                 backgroundBorder.backgroundColor = UIColor.whiteColor()
                 backgroundBorder.layer.borderWidth = 1.0;
                 backgroundBorder.layer.borderColor = UIColor.lightGrayColor().CGColor
-                self.addSubview(backgroundBorder)
+                self.insertSubview(backgroundBorder, atIndex:0)
             }
             if let colorBar = self.colorBar {
                 colorBar.backgroundColor = newValue
@@ -31,7 +31,7 @@ extension UIView {
                 colorBar.autoresizingMask = .FlexibleBottomMargin | .FlexibleWidth
                 colorBar.tag = colorBarTag
                 colorBar.backgroundColor = newValue
-                self.addSubview(colorBar)
+                self.insertSubview(colorBar, aboveSubview: self.backgroundBorder!)
             }
         }
         get { return UIColor() }
