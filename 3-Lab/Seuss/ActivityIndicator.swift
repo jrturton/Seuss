@@ -12,13 +12,14 @@ extension UIViewController {
   
   func displayActivity(seconds: Int, completion:(()->Void)?) {
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-    
-    indicator.frame.size = CGSize(width: 150, height: 150)
-    indicator.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
-    
     indicator.layer.cornerRadius = 10.0
     indicator.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
     view.addSubview(indicator)
+    
+    // Size and position using manual frames
+    indicator.frame.size = CGSize(width: 150, height: 150)
+    indicator.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
+    
     view.tintAdjustmentMode = .Dimmed
     
     indicator.startAnimating()
