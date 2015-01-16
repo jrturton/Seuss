@@ -16,7 +16,7 @@ The border styles are set via the `IBInspectable` property `topBorder` in the st
 
 ### 3. Root cause
 
-Use logging breakpoints to work out what is going wrong. Why does setting the property not always result in a border around the relevant view?
+Use logging breakpoints and the view debugger to work out what is going wrong. Why does setting the property not always result in a border around the relevant view?
 
 **HINT**: _Tags are horrible and should never be used. You may wish to look at the documentation for_ `viewWithTag`
 
