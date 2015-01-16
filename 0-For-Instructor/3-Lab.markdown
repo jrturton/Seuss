@@ -43,3 +43,39 @@ This will force resign any active text fields and cause their data to be added t
 ## Verify
 
 Re-run the reproduction steps - the data will now be preserved! 
+
+## "It crashes on the iPad"
+
+### 1. Reproduction
+
+The app _only_ crashes on 7.1 non-retina devices (meaning ipads). Run it in the **iPad 2 iOS 7.1 simulator**.
+
+### 2. Location
+
+Add a symbolic breakpoint on `-[UITableView layoutSubviews]`
+
+Log out the autolayout trace by entering the following in the console or the debugger action on the breakpoint:
+
+```
+po [[[UIApplication sharedApplication] keyWindow] _autolayoutTrace]
+```
+
+Happens twice - fine the first time, so play on and it happens again
+Look for ambiguous layout in the trace - this will be highlighted with asterisks in the view hierarchy.
+
+### 3. Root cause
+
+Autolayout trace suggests the activity indicator has an ambiguous layout. Perhaps there is some problem with half-pixels and scroll views. It looks like a UIKit bug which is fixed in iOS8
+
+### 4. Fix
+
+Change the autolayout code to use manual frames instead of autolayout. Replace all of the autolayout code with this:
+
+```
+indicator.frame.size = CGSize(width: 150, height: 150)
+indicator.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
+```
+
+### 5. Verify
+
+Re-test, look at the layout trace
